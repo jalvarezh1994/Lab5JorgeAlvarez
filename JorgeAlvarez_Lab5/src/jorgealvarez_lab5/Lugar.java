@@ -15,7 +15,7 @@ public class Lugar {
 
     private String Nombre, Direccion;
     private int NivelDeSeguridad;
-    private ArrayList<Carretera> CarreterasDeEntrada = new ArrayList();
+    private Carretera CarreteraDeEntrada;
     private Carretera CarreteraDeSalida;
 
     public Lugar() {
@@ -52,12 +52,12 @@ public class Lugar {
         this.NivelDeSeguridad = NivelDeSeguridad;
     }
 
-    public ArrayList<Carretera> getCarreterasDeEntrada() {
-        return CarreterasDeEntrada;
+    public Carretera getCarreteraDeEntrada() {
+        return CarreteraDeEntrada;
     }
 
-    public void setCarreterasDeEntrada(ArrayList<Carretera> CarreterasDeEntrada) {
-        this.CarreterasDeEntrada = CarreterasDeEntrada;
+    public void setCarreteraDeEntrada(Carretera CarreteraDeEntrada) {
+        this.CarreteraDeEntrada = CarreteraDeEntrada;
     }
 
     public Carretera getCarreteraDeSalida() {
@@ -70,7 +70,7 @@ public class Lugar {
 
     @Override
     public String toString() {
-        return "Lugar{" + "Nombre=" + Nombre + ", Direccion=" + Direccion + ", NivelDeSeguridad=" + NivelDeSeguridad + ", CarreterasDeEntrada=" + CarreterasDeEntrada + ", CarreteraDeSalida=" + CarreteraDeSalida + '}';
+        return "" + Nombre;
     }
 
 }

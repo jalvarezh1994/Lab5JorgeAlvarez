@@ -49,7 +49,7 @@ public class Restaurante extends Lugar {
 
     @Override
     public String toString() {
-        return "Restaurante{" + "Categoria=" + Categoria + ", Calificacion=" + Calificacion + '}';
+        return super.toString();
     }
 
 }
