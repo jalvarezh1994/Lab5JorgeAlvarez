@@ -83,18 +83,19 @@ public class Principal2 extends javax.swing.JFrame {
         NumeroUnicoCarreteraTf = new javax.swing.JTextField();
         MenuClickDerecho = new javax.swing.JPopupMenu();
         Eliminar = new javax.swing.JMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         Principal = new javax.swing.JTabbedPane();
         CreacionDeElementosPa = new javax.swing.JPanel();
         AgregarRestauranteBt = new javax.swing.JButton();
         AgregarCanchaBt = new javax.swing.JButton();
-        AgregarCasa = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        AgregarCasaBt = new javax.swing.JButton();
+        AgregarCarreteraBt = new javax.swing.JButton();
         ListarElementosPa = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListarTb = new javax.swing.JTable();
-        ListarEquiposRb = new javax.swing.JRadioButton();
-        ListarTecnicosRb = new javax.swing.JRadioButton();
-        ListarJugadoresRb = new javax.swing.JRadioButton();
+        ListarRestaurantesRb = new javax.swing.JRadioButton();
+        ListarCanchasRb = new javax.swing.JRadioButton();
+        ListarCarreterasRb = new javax.swing.JRadioButton();
         AgregarJugadoresAEquipoPa = new javax.swing.JPanel();
         AgregarJugadorCb = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -388,6 +389,11 @@ public class Principal2 extends javax.swing.JFrame {
                 AgregarRestauranteBtMouseClicked(evt);
             }
         });
+        AgregarRestauranteBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarRestauranteBtActionPerformed(evt);
+            }
+        });
 
         AgregarCanchaBt.setText("Agregar Cancha");
         AgregarCanchaBt.addActionListener(new java.awt.event.ActionListener() {
@@ -396,14 +402,19 @@ public class Principal2 extends javax.swing.JFrame {
             }
         });
 
-        AgregarCasa.setText("Agregar Casa");
-        AgregarCasa.addActionListener(new java.awt.event.ActionListener() {
+        AgregarCasaBt.setText("Agregar Casa");
+        AgregarCasaBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarCasaActionPerformed(evt);
+                AgregarCasaBtActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Agregar Carretera");
+        AgregarCarreteraBt.setText("Agregar Carretera");
+        AgregarCarreteraBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarCarreteraBtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CreacionDeElementosPaLayout = new javax.swing.GroupLayout(CreacionDeElementosPa);
         CreacionDeElementosPa.setLayout(CreacionDeElementosPaLayout);
@@ -412,10 +423,10 @@ public class Principal2 extends javax.swing.JFrame {
             .addGroup(CreacionDeElementosPaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CreacionDeElementosPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(AgregarCasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AgregarCasaBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AgregarRestauranteBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AgregarCanchaBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(AgregarCarreteraBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(582, Short.MAX_VALUE))
         );
         CreacionDeElementosPaLayout.setVerticalGroup(
@@ -426,9 +437,9 @@ public class Principal2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(AgregarCanchaBt)
                 .addGap(18, 18, 18)
-                .addComponent(AgregarCasa)
+                .addComponent(AgregarCasaBt)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(AgregarCarreteraBt)
                 .addContainerGap(361, Short.MAX_VALUE))
         );
 
@@ -449,24 +460,27 @@ public class Principal2 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(ListarTb);
 
-        ListarEquiposRb.setText("Listar Equipos");
-        ListarEquiposRb.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ListarRestaurantesRb);
+        ListarRestaurantesRb.setText("Listar Restaurantes");
+        ListarRestaurantesRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarEquiposRbActionPerformed(evt);
+                ListarRestaurantesRbActionPerformed(evt);
             }
         });
 
-        ListarTecnicosRb.setText("Listar Técnicos");
-        ListarTecnicosRb.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ListarCanchasRb);
+        ListarCanchasRb.setText("Listar Canchas");
+        ListarCanchasRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarTecnicosRbActionPerformed(evt);
+                ListarCanchasRbActionPerformed(evt);
             }
         });
 
-        ListarJugadoresRb.setText("Listar Jugadores");
-        ListarJugadoresRb.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ListarCarreterasRb);
+        ListarCarreterasRb.setText("Listar Carreteras");
+        ListarCarreterasRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarJugadoresRbActionPerformed(evt);
+                ListarCarreterasRbActionPerformed(evt);
             }
         });
 
@@ -478,11 +492,11 @@ public class Principal2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ListarElementosPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ListarElementosPaLayout.createSequentialGroup()
-                        .addComponent(ListarEquiposRb)
+                        .addComponent(ListarRestaurantesRb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ListarTecnicosRb)
+                        .addComponent(ListarCanchasRb)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ListarJugadoresRb)
+                        .addComponent(ListarCarreterasRb)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE))
                 .addContainerGap())
@@ -492,9 +506,9 @@ public class Principal2 extends javax.swing.JFrame {
             .addGroup(ListarElementosPaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ListarElementosPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ListarEquiposRb)
-                    .addComponent(ListarTecnicosRb)
-                    .addComponent(ListarJugadoresRb))
+                    .addComponent(ListarRestaurantesRb)
+                    .addComponent(ListarCanchasRb)
+                    .addComponent(ListarCarreterasRb))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(43, Short.MAX_VALUE))
@@ -701,88 +715,80 @@ public class Principal2 extends javax.swing.JFrame {
         AgregarCanchaJd.pack();
     }//GEN-LAST:event_AgregarCanchaBtActionPerformed
 
-    private void AgregarCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCasaActionPerformed
+    private void AgregarCasaBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCasaBtActionPerformed
         // TODO add your handling code here:
         AgregarCasaJd.setVisible(true);
         AgregarCasaJd.pack();
-    }//GEN-LAST:event_AgregarCasaActionPerformed
+    }//GEN-LAST:event_AgregarCasaBtActionPerformed
 
-    private void ListarEquiposRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarEquiposRbActionPerformed
+    private void ListarRestaurantesRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarRestaurantesRbActionPerformed
         // TODO add your handling code here:
         ListarTb.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "Nombre", "País", "Calidad", "Técnico del equipo", "Puntos"
+                    "Nombre", "Dirección", "Nivel de seguridad",
+                    "Categoría", "Calificación"
                 }
         ));
         DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
 
-        for (int i = 0; i < Equipos.size(); i++) {
+        for (int i = 0; i < Restaurantes.size(); i++) {
             Object[] row = {
-                Equipos.get(i).getNombre(),
-                Equipos.get(i).getPais(),
-                Equipos.get(i).getCalidad(),
-                ((Tecnico) (Equipos.get(i).getTecnicoDelEquipo())).getNombre(),
-                Equipos.get(i).getPuntos()
+                Restaurantes.get(i).getNombre(),
+                Restaurantes.get(i).getDireccion(),
+                Restaurantes.get(i).getNivelDeSeguridad(),
+                Restaurantes.get(i).getCategoria(),
+                Restaurantes.get(i).getCalificacion()
             };
             modelo.addRow(row);
         }
         ListarTb.setModel(modelo);
-    }//GEN-LAST:event_ListarEquiposRbActionPerformed
+    }//GEN-LAST:event_ListarRestaurantesRbActionPerformed
 
-    private void ListarTecnicosRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarTecnicosRbActionPerformed
+    private void ListarCanchasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCanchasRbActionPerformed
         // TODO add your handling code here:
         ListarTb.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "Nombre", "Edad", "País", "Salario", "Tiempo de trabajo", "Calidad", "Tipo de juego"
+                    "Nombre", "Dirección", "Nivel de seguridad",
+                    "Categoría", "Estado"
                 }
         ));
         DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
 
-        for (int i = 0; i < Tecnicos.size(); i++) {
+        for (int i = 0; i < Restaurantes.size(); i++) {
             Object[] row = {
-                Tecnicos.get(i).getNombre(),
-                Tecnicos.get(i).getEdad(),
-                Tecnicos.get(i).getPais(),
-                Tecnicos.get(i).getSalario(),
-                Tecnicos.get(i).getTiempoDeTrabajo(),
-                Tecnicos.get(i).getCalidad(),
-                Tecnicos.get(i).getTipoDeJuego()
-            };
+                Restaurantes.get(i).getNombre(),
+                Restaurantes.get(i).getDireccion(),
+                Restaurantes.get(i).getNivelDeSeguridad(),
+                Restaurantes.get(i).getNivelDeSeguridad(),
+                Restaurantes.get(i).getNivelDeSeguridad(),};
             modelo.addRow(row);
         }
         ListarTb.setModel(modelo);
-    }//GEN-LAST:event_ListarTecnicosRbActionPerformed
+    }//GEN-LAST:event_ListarCanchasRbActionPerformed
 
-    private void ListarJugadoresRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarJugadoresRbActionPerformed
+    private void ListarCarreterasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCarreterasRbActionPerformed
         // TODO add your handling code here:
         ListarTb.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "Nombre", "Edad", "País", "Salario", "Número de camiseta",
-                    "Pié preferido", "Posición", "Calidad", "Velocidad", "Precio"
+                    "Número único", "Distancia", "Lugar de inicio", "Lugar final"
                 }
         ));
         DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
 
-        for (int i = 0; i < Jugadores.size(); i++) {
+        for (int i = 0; i < Carreteras.size(); i++) {
             Object[] row = {
-                Jugadores.get(i).getNombre(),
-                Jugadores.get(i).getEdad(),
-                Jugadores.get(i).getPais(),
-                Jugadores.get(i).getSalario(),
-                Jugadores.get(i).getNumeroDeCamista(),
-                Jugadores.get(i).getPiePreferido(),
-                Jugadores.get(i).getPosicion(),
-                Jugadores.get(i).getCalidad(),
-                Jugadores.get(i).getVelocidad(),
-                Jugadores.get(i).getPrecio()
+                Carreteras.get(i).getNumeroUnico(),
+                Carreteras.get(i).getDistancia(),
+                Carreteras.get(i).getLugarInicio().getNombre(),
+                Carreteras.get(i).getLugarFinal().getNombre(),
             };
             modelo.addRow(row);
         }
         ListarTb.setModel(modelo);
-    }//GEN-LAST:event_ListarJugadoresRbActionPerformed
+    }//GEN-LAST:event_ListarCarreterasRbActionPerformed
 
     private void ListarTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarTbMouseClicked
         // TODO add your handling code here:
@@ -965,6 +971,16 @@ public class Principal2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarRestauranteJdBt1MouseClicked
 
+    private void AgregarRestauranteBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRestauranteBtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarRestauranteBtActionPerformed
+
+    private void AgregarCarreteraBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCarreteraBtActionPerformed
+        // TODO add your handling code here:
+        AgregarCarreteraJd.setVisible(true);
+        AgregarCarreteraJd.pack();
+    }//GEN-LAST:event_AgregarCarreteraBtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1006,8 +1022,9 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JButton AgregarCanchaBt;
     private javax.swing.JDialog AgregarCanchaJd;
     private javax.swing.JButton AgregarCanchaJdBt;
+    private javax.swing.JButton AgregarCarreteraBt;
     private javax.swing.JDialog AgregarCarreteraJd;
-    private javax.swing.JButton AgregarCasa;
+    private javax.swing.JButton AgregarCasaBt;
     private javax.swing.JDialog AgregarCasaJd;
     private javax.swing.JButton AgregarCasaJdBt;
     private javax.swing.JComboBox<String> AgregarJugadorCb;
@@ -1031,11 +1048,11 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Equipo2Cb;
     private javax.swing.JTextField EstadoCanchaTf;
     private javax.swing.JButton JugarPartidoBt;
+    private javax.swing.JRadioButton ListarCanchasRb;
+    private javax.swing.JRadioButton ListarCarreterasRb;
     private javax.swing.JPanel ListarElementosPa;
-    private javax.swing.JRadioButton ListarEquiposRb;
-    private javax.swing.JRadioButton ListarJugadoresRb;
+    private javax.swing.JRadioButton ListarRestaurantesRb;
     private javax.swing.JTable ListarTb;
-    private javax.swing.JRadioButton ListarTecnicosRb;
     private javax.swing.JPopupMenu MenuClickDerecho;
     private javax.swing.JTree MostrarPlantillasArbol;
     private javax.swing.JPanel MostrarPlantillasPa;
@@ -1050,8 +1067,8 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JPanel OrganizarPartidosPa;
     private javax.swing.JTabbedPane Principal;
     private javax.swing.JTable RankingTb;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

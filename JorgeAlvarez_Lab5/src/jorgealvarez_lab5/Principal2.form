@@ -447,6 +447,8 @@
         </MenuItem>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -510,10 +512,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="AgregarCasa" max="32767" attributes="0"/>
+                          <Component id="AgregarCasaBt" max="32767" attributes="0"/>
                           <Component id="AgregarRestauranteBt" alignment="1" max="32767" attributes="0"/>
                           <Component id="AgregarCanchaBt" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButton3" max="32767" attributes="0"/>
+                          <Component id="AgregarCarreteraBt" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="582" max="32767" attributes="0"/>
                   </Group>
@@ -527,9 +529,9 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="AgregarCanchaBt" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="AgregarCasa" min="-2" max="-2" attributes="0"/>
+                      <Component id="AgregarCasaBt" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AgregarCarreteraBt" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="361" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -542,6 +544,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AgregarRestauranteBtMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarRestauranteBtActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="AgregarCanchaBt">
@@ -552,18 +555,21 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarCanchaBtActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="AgregarCasa">
+            <Component class="javax.swing.JButton" name="AgregarCasaBt">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Casa"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarCasaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarCasaBtActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="AgregarCarreteraBt">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Carretera"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarCarreteraBtActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -583,11 +589,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="ListarEquiposRb" min="-2" max="-2" attributes="0"/>
+                              <Component id="ListarRestaurantesRb" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ListarTecnicosRb" min="-2" max="-2" attributes="0"/>
+                              <Component id="ListarCanchasRb" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ListarJugadoresRb" min="-2" max="-2" attributes="0"/>
+                              <Component id="ListarCarreterasRb" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" pref="707" max="32767" attributes="0"/>
@@ -601,9 +607,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ListarEquiposRb" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ListarTecnicosRb" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ListarJugadoresRb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ListarRestaurantesRb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ListarCanchasRb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ListarCarreterasRb" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
@@ -638,37 +644,37 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JRadioButton" name="ListarEquiposRb">
+            <Component class="javax.swing.JRadioButton" name="ListarRestaurantesRb">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="default"/>
+                  <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Listar Equipos"/>
+                <Property name="text" type="java.lang.String" value="Listar Restaurantes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarEquiposRbActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarRestaurantesRbActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="ListarTecnicosRb">
+            <Component class="javax.swing.JRadioButton" name="ListarCanchasRb">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="default"/>
+                  <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Listar T&#xe9;cnicos"/>
+                <Property name="text" type="java.lang.String" value="Listar Canchas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarTecnicosRbActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarCanchasRbActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="ListarJugadoresRb">
+            <Component class="javax.swing.JRadioButton" name="ListarCarreterasRb">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="default"/>
+                  <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Listar Jugadores"/>
+                <Property name="text" type="java.lang.String" value="Listar Carreteras"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarJugadoresRbActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarCarreterasRbActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
