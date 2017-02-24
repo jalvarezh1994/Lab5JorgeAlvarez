@@ -15,6 +15,7 @@ import javax.swing.JTree;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 /**
  *
@@ -27,10 +28,6 @@ public class Principal2 extends javax.swing.JFrame {
      */
     public Principal2() {
         initComponents();
-        Equipos.add(new Equipo("Barcelona", "España", new Tecnico(Float.parseFloat("12.5"), 12, "Defensivo"), 0));
-        Equipos.add(new Equipo("Real Madrid", "España", new Tecnico(Float.parseFloat("12.5"), 1, "Defensivo"), 0));
-        Jugadores.add(new Jugador(1, "I", "Delantero", WIDTH, TOP_ALIGNMENT, TOP_ALIGNMENT, "Neymar", WIDTH, "París", TOP_ALIGNMENT));
-        Jugadores.add(new Jugador(1, "I", "Delantero", WIDTH, TOP_ALIGNMENT, TOP_ALIGNMENT, "Alejandro", WIDTH, "Francia", TOP_ALIGNMENT));
     }
 
     /**
@@ -81,9 +78,14 @@ public class Principal2 extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         NumeroUnicoCarreteraTf = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        LugarInicio = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         MenuClickDerecho = new javax.swing.JPopupMenu();
         Eliminar = new javax.swing.JMenuItem();
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        ListarElementosBg = new javax.swing.ButtonGroup();
+        ListarCategoriasBg = new javax.swing.ButtonGroup();
         Principal = new javax.swing.JTabbedPane();
         CreacionDeElementosPa = new javax.swing.JPanel();
         AgregarRestauranteBt = new javax.swing.JButton();
@@ -96,17 +98,11 @@ public class Principal2 extends javax.swing.JFrame {
         ListarRestaurantesRb = new javax.swing.JRadioButton();
         ListarCanchasRb = new javax.swing.JRadioButton();
         ListarCarreterasRb = new javax.swing.JRadioButton();
-        AgregarJugadoresAEquipoPa = new javax.swing.JPanel();
-        AgregarJugadorCb = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        AgregarJugadorLi = new javax.swing.JList<>();
-        AgregarJugadorNombreLi = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        ActualizarListaAgregarEquipoBt = new javax.swing.JButton();
         MostrarPlantillasPa = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        MostrarPlantillasArbol = new javax.swing.JTree();
+        ListarCategoriasTr = new javax.swing.JTree();
+        ListarRestaurantesCategoriaRb = new javax.swing.JRadioButton();
+        ListarCanchasCategoriasRb = new javax.swing.JRadioButton();
         OrganizarPartidosPa = new javax.swing.JPanel();
         Equipo1Cb = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
@@ -329,6 +325,14 @@ public class Principal2 extends javax.swing.JFrame {
 
         jLabel39.setText("Número único");
 
+        jLabel1.setText("Lugar de inicio");
+
+        LugarInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel2.setText("Lugar de final");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout AgregarCarreteraJdLayout = new javax.swing.GroupLayout(AgregarCarreteraJd.getContentPane());
         AgregarCarreteraJd.getContentPane().setLayout(AgregarCarreteraJdLayout);
         AgregarCarreteraJdLayout.setHorizontalGroup(
@@ -341,12 +345,15 @@ public class Principal2 extends javax.swing.JFrame {
                         .addGroup(AgregarCarreteraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel39)
                             .addComponent(jLabel38)
-                            .addComponent(jLabel33))
-                        .addGap(66, 66, 66)
-                        .addGroup(AgregarCarreteraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(DistanciaCarreteraTf, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(NumeroUnicoCarreteraTf))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(61, 61, 61)
+                        .addGroup(AgregarCarreteraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, 0, 218, Short.MAX_VALUE)
+                            .addComponent(LugarInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DistanciaCarreteraTf)
+                            .addComponent(NumeroUnicoCarreteraTf))))
                 .addContainerGap())
         );
         AgregarCarreteraJdLayout.setVerticalGroup(
@@ -361,8 +368,16 @@ public class Principal2 extends javax.swing.JFrame {
                     .addComponent(jLabel38)
                     .addComponent(DistanciaCarreteraTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(AgregarCarreteraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(LugarInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(AgregarCarreteraJdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(AgregarRestauranteJdBt1)
                 .addContainerGap())
         );
@@ -460,7 +475,7 @@ public class Principal2 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(ListarTb);
 
-        buttonGroup1.add(ListarRestaurantesRb);
+        ListarElementosBg.add(ListarRestaurantesRb);
         ListarRestaurantesRb.setText("Listar Restaurantes");
         ListarRestaurantesRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,7 +483,7 @@ public class Principal2 extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(ListarCanchasRb);
+        ListarElementosBg.add(ListarCanchasRb);
         ListarCanchasRb.setText("Listar Canchas");
         ListarCanchasRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -476,7 +491,7 @@ public class Principal2 extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(ListarCarreterasRb);
+        ListarElementosBg.add(ListarCarreterasRb);
         ListarCarreterasRb.setText("Listar Carreteras");
         ListarCarreterasRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,68 +531,21 @@ public class Principal2 extends javax.swing.JFrame {
 
         Principal.addTab("Listar Elementos", ListarElementosPa);
 
-        AgregarJugadorCb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jScrollPane3.setViewportView(ListarCategoriasTr);
 
-        jScrollPane1.setViewportView(AgregarJugadorLi);
-
-        jLabel14.setText("Escriba el nombre del jugador");
-
-        jButton1.setText("Agregar jugador");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ListarRestaurantesCategoriaRb.setText("Listar Restaurantes");
+        ListarRestaurantesCategoriaRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ListarRestaurantesCategoriaRbActionPerformed(evt);
             }
         });
 
-        ActualizarListaAgregarEquipoBt.setText("Actualizar lista");
-        ActualizarListaAgregarEquipoBt.addActionListener(new java.awt.event.ActionListener() {
+        ListarCanchasCategoriasRb.setText("Listar Canchas");
+        ListarCanchasCategoriasRb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarListaAgregarEquipoBtActionPerformed(evt);
+                ListarCanchasCategoriasRbActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout AgregarJugadoresAEquipoPaLayout = new javax.swing.GroupLayout(AgregarJugadoresAEquipoPa);
-        AgregarJugadoresAEquipoPa.setLayout(AgregarJugadoresAEquipoPaLayout);
-        AgregarJugadoresAEquipoPaLayout.setHorizontalGroup(
-            AgregarJugadoresAEquipoPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AgregarJugadoresAEquipoPaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AgregarJugadoresAEquipoPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AgregarJugadorCb, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(AgregarJugadoresAEquipoPaLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addGroup(AgregarJugadoresAEquipoPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AgregarJugadoresAEquipoPaLayout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(AgregarJugadorNombreLi, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1)))
-                    .addComponent(ActualizarListaAgregarEquipoBt))
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
-        AgregarJugadoresAEquipoPaLayout.setVerticalGroup(
-            AgregarJugadoresAEquipoPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AgregarJugadoresAEquipoPaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AgregarJugadorCb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ActualizarListaAgregarEquipoBt)
-                .addGap(25, 25, 25)
-                .addGroup(AgregarJugadoresAEquipoPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(AgregarJugadoresAEquipoPaLayout.createSequentialGroup()
-                        .addGroup(AgregarJugadoresAEquipoPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AgregarJugadorNombreLi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addContainerGap(145, Short.MAX_VALUE))
-        );
-
-        Principal.addTab("Agregar Jugadores a un Equipo", AgregarJugadoresAEquipoPa);
-
-        jScrollPane3.setViewportView(MostrarPlantillasArbol);
 
         javax.swing.GroupLayout MostrarPlantillasPaLayout = new javax.swing.GroupLayout(MostrarPlantillasPa);
         MostrarPlantillasPa.setLayout(MostrarPlantillasPaLayout);
@@ -585,18 +553,28 @@ public class Principal2 extends javax.swing.JFrame {
             MostrarPlantillasPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MostrarPlantillasPaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(491, Short.MAX_VALUE))
+                .addGroup(MostrarPlantillasPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MostrarPlantillasPaLayout.createSequentialGroup()
+                        .addComponent(ListarRestaurantesCategoriaRb)
+                        .addGap(18, 18, 18)
+                        .addComponent(ListarCanchasCategoriasRb)
+                        .addGap(0, 475, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3))
+                .addContainerGap())
         );
         MostrarPlantillasPaLayout.setVerticalGroup(
             MostrarPlantillasPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MostrarPlantillasPaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MostrarPlantillasPaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGroup(MostrarPlantillasPaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ListarRestaurantesCategoriaRb)
+                    .addComponent(ListarCanchasCategoriasRb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        Principal.addTab("Mostrar Plantillas", MostrarPlantillasPa);
+        Principal.addTab("Listar por categorías", MostrarPlantillasPa);
 
         Equipo1Cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -703,100 +681,6 @@ public class Principal2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AgregarRestauranteBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarRestauranteBtMouseClicked
-        // TODO add your handling code here:
-        AgregarRestauranteJd.setVisible(true);
-        AgregarRestauranteJd.pack();
-    }//GEN-LAST:event_AgregarRestauranteBtMouseClicked
-
-    private void AgregarCanchaBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCanchaBtActionPerformed
-        // TODO add your handling code here:
-        AgregarCanchaJd.setVisible(true);
-        AgregarCanchaJd.pack();
-    }//GEN-LAST:event_AgregarCanchaBtActionPerformed
-
-    private void AgregarCasaBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCasaBtActionPerformed
-        // TODO add your handling code here:
-        AgregarCasaJd.setVisible(true);
-        AgregarCasaJd.pack();
-    }//GEN-LAST:event_AgregarCasaBtActionPerformed
-
-    private void ListarRestaurantesRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarRestaurantesRbActionPerformed
-        // TODO add your handling code here:
-        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{
-                    "Nombre", "Dirección", "Nivel de seguridad",
-                    "Categoría", "Calificación"
-                }
-        ));
-        DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
-
-        for (int i = 0; i < Restaurantes.size(); i++) {
-            Object[] row = {
-                Restaurantes.get(i).getNombre(),
-                Restaurantes.get(i).getDireccion(),
-                Restaurantes.get(i).getNivelDeSeguridad(),
-                Restaurantes.get(i).getCategoria(),
-                Restaurantes.get(i).getCalificacion()
-            };
-            modelo.addRow(row);
-        }
-        ListarTb.setModel(modelo);
-    }//GEN-LAST:event_ListarRestaurantesRbActionPerformed
-
-    private void ListarCanchasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCanchasRbActionPerformed
-        // TODO add your handling code here:
-        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{
-                    "Nombre", "Dirección", "Nivel de seguridad",
-                    "Categoría", "Estado"
-                }
-        ));
-        DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
-
-        for (int i = 0; i < Restaurantes.size(); i++) {
-            Object[] row = {
-                Restaurantes.get(i).getNombre(),
-                Restaurantes.get(i).getDireccion(),
-                Restaurantes.get(i).getNivelDeSeguridad(),
-                Restaurantes.get(i).getNivelDeSeguridad(),
-                Restaurantes.get(i).getNivelDeSeguridad(),};
-            modelo.addRow(row);
-        }
-        ListarTb.setModel(modelo);
-    }//GEN-LAST:event_ListarCanchasRbActionPerformed
-
-    private void ListarCarreterasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCarreterasRbActionPerformed
-        // TODO add your handling code here:
-        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{
-                    "Número único", "Distancia", "Lugar de inicio", "Lugar final"
-                }
-        ));
-        DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
-
-        for (int i = 0; i < Carreteras.size(); i++) {
-            Object[] row = {
-                Carreteras.get(i).getNumeroUnico(),
-                Carreteras.get(i).getDistancia(),
-                Carreteras.get(i).getLugarInicio().getNombre(),
-                Carreteras.get(i).getLugarFinal().getNombre(),
-            };
-            modelo.addRow(row);
-        }
-        ListarTb.setModel(modelo);
-    }//GEN-LAST:event_ListarCarreterasRbActionPerformed
-
-    private void ListarTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarTbMouseClicked
-        // TODO add your handling code here:
-        if (evt.isMetaDown()) {
-            MenuClickDerecho.show(ListarTb, evt.getX(), evt.getY());
-        }
-    }//GEN-LAST:event_ListarTbMouseClicked
-
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
         if (ListarRestaurantesRb.isSelected()) {
@@ -810,15 +694,45 @@ public class Principal2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EliminarActionPerformed
 
+    private void AgregarRestauranteJdBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarRestauranteJdBtMouseClicked
+        // TODO add your handling code here:
+        Restaurantes.add(new Restaurante());
+        int pos = Restaurantes.size() - 1;
+        Restaurantes.get(pos).setNombre(NombreRestauranteTf.getText());
+        Restaurantes.get(pos).setDireccion(DireccionTf.getText());
+        Restaurantes.get(pos).setNivelDeSeguridad(Integer.parseInt(NivelDeSeguridadRestauranteTf.getText()));
+        Restaurantes.get(pos).setCategoria(CategoriaRestauranteCb.getItemAt(CategoriaRestauranteCb.getSelectedIndex()));
+        Restaurantes.get(pos).setCalificacion(Integer.parseInt(CalificacionCb.getItemAt(CalificacionCb.getSelectedIndex())));
+
+    }//GEN-LAST:event_AgregarRestauranteJdBtMouseClicked
+
+    private void AgregarCanchaJdBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCanchaJdBtMouseClicked
+        // TODO add your handling code here:
+        Canchas.add(new Cancha());
+        int pos = Canchas.size() - 1;
+        Canchas.get(pos).setNombre(NombreCanchaTf.getText());
+        Canchas.get(pos).setDireccion(DireccionTf.getText());
+        Canchas.get(pos).setNivelDeSeguridad(Integer.parseInt(NivelDeSeguridadCanchaTf.getText()));
+        Canchas.get(pos).setCategoria(CategoriaCanchaCb.getItemAt(CategoriaCanchaCb.getSelectedIndex()));
+        Canchas.get(pos).setEstado(EstadoCanchaTf.getText());
+
+    }//GEN-LAST:event_AgregarCanchaJdBtMouseClicked
+
+    private void AgregarCasaJdBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCasaJdBtMouseClicked
+        // TODO add your handling code here:
+        Casas.add(new Casa());
+        int pos = Casas.size() - 1;
+        Casas.get(pos).setNombre(NombreCasaTf.getText());
+        Casas.get(pos).setDireccion(DireccionTf.getText());
+        Casas.get(pos).setNivelDeSeguridad(Integer.parseInt(NivelDeSeguridadCasaTf.getText()));
+    }//GEN-LAST:event_AgregarCasaJdBtMouseClicked
+
+    private void AgregarRestauranteJdBt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarRestauranteJdBt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarRestauranteJdBt1MouseClicked
+
     private void PrincipalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_PrincipalStateChanged
         // TODO add your handling code here:
-        if (Principal.getSelectedIndex() == 2) {
-            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-            for (int i = 0; i < Equipos.size(); i++) {
-                modelo.addElement(Equipos.get(i).getNombre());
-            }
-            AgregarJugadorCb.setModel(modelo);
-        }
         if (Principal.getSelectedIndex() == 3) {
             DefaultMutableTreeNode Raiz = new DefaultMutableTreeNode("Equipos");
             DefaultTreeModel ModeloArbol = new DefaultTreeModel(new DefaultMutableTreeNode("Equipos"));
@@ -839,7 +753,7 @@ public class Principal2 extends javax.swing.JFrame {
                 ModeloArbol.setRoot(Raiz);
 
             }
-            MostrarPlantillasArbol.setModel(ModeloArbol);
+            ListarCategoriasTr.setModel(ModeloArbol);
         }
         if (Principal.getSelectedIndex() == 4) {
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -879,43 +793,7 @@ public class Principal2 extends javax.swing.JFrame {
 
             RankingTb.setModel(modelo);
         }
-
     }//GEN-LAST:event_PrincipalStateChanged
-
-    private void ActualizarListaAgregarEquipoBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarListaAgregarEquipoBtActionPerformed
-        // TODO add your handling code here:
-        DefaultListModel modelo = new DefaultListModel();
-        for (int i = 0; i < Equipos.get(AgregarJugadorCb.getSelectedIndex()).getJugadores().size(); i++) {
-            modelo.addElement(Equipos.get(AgregarJugadorCb.getSelectedIndex()).getJugadores().get(i).getNombre());
-        }
-        AgregarJugadorLi.setModel(modelo);
-    }//GEN-LAST:event_ActualizarListaAgregarEquipoBtActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        boolean ExisteJugador = false;
-        int IndexDelJugador = 0;
-        for (int i = 0; i < Jugadores.size(); i++) {
-            if (Jugadores.get(i).getNombre().equalsIgnoreCase(AgregarJugadorNombreLi.getText())) {
-                ExisteJugador = true;
-                IndexDelJugador = i;
-            }
-        }
-        if (ExisteJugador) {
-            Equipos.get(AgregarJugadorCb.getSelectedIndex()).getJugadores().add(Jugadores.get(IndexDelJugador));
-
-            DefaultListModel modelo = new DefaultListModel();
-            for (int i = 0; i < Equipos.get(AgregarJugadorCb.getSelectedIndex()).getJugadores().size(); i++) {
-                modelo.addElement(Equipos.get(AgregarJugadorCb.getSelectedIndex()).getJugadores().get(i).getNombre());
-            }
-            AgregarJugadorLi.setModel(modelo);
-
-            Jugadores.remove(IndexDelJugador);
-            JOptionPane.showMessageDialog(this, "Se ha agregado el jugador");
-        } else {
-            JOptionPane.showMessageDialog(null, "No existe el jugador");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JugarPartidoBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarPartidoBtActionPerformed
         // TODO add your handling code here:
@@ -942,52 +820,185 @@ public class Principal2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JugarPartidoBtActionPerformed
 
-    private void AgregarRestauranteJdBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarRestauranteJdBtMouseClicked
+    private void ListarCarreterasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCarreterasRbActionPerformed
         // TODO add your handling code here:
-        Restaurantes.add(new Restaurante());
-        int pos = Restaurantes.size() - 1;
-        Restaurantes.get(pos).setNombre(NombreRestauranteTf.getText());
-        Restaurantes.get(pos).setDireccion(DireccionTf.getText());
-        Restaurantes.get(pos).setNivelDeSeguridad(Integer.parseInt(NivelDeSeguridadRestauranteTf.getText()));
-        Restaurantes.get(pos).setCategoria(CategoriaRestauranteCb.getItemAt(CategoriaRestauranteCb.getSelectedIndex()));
-        Restaurantes.get(pos).setCalificacion(Integer.parseInt(CalificacionCb.getItemAt(CalificacionCb.getSelectedIndex())));
+        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Número único", "Distancia", "Lugar de inicio", "Lugar final"
+                }
+        ));
+        DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
 
-    }//GEN-LAST:event_AgregarRestauranteJdBtMouseClicked
+        for (int i = 0; i < Carreteras.size(); i++) {
+            Object[] row = {
+                Carreteras.get(i).getNumeroUnico(),
+                Carreteras.get(i).getDistancia(),
+                Carreteras.get(i).getLugarInicio().getNombre(),
+                Carreteras.get(i).getLugarFinal().getNombre(),};
+            modelo.addRow(row);
+        }
+        ListarTb.setModel(modelo);
+    }//GEN-LAST:event_ListarCarreterasRbActionPerformed
 
-    private void AgregarCanchaJdBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCanchaJdBtMouseClicked
+    private void ListarCanchasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCanchasRbActionPerformed
         // TODO add your handling code here:
-        Canchas.add(new Cancha());
-        int pos = Canchas.size() - 1;
-        Canchas.get(pos).setNombre(NombreCanchaTf.getText());
-        Canchas.get(pos).setDireccion(DireccionTf.getText());
-        Canchas.get(pos).setNivelDeSeguridad(Integer.parseInt(NivelDeSeguridadCanchaTf.getText()));
-        Canchas.get(pos).setCategoria(CategoriaCanchaCb.getItemAt(CategoriaCanchaCb.getSelectedIndex()));
-        Canchas.get(pos).setEstado(EstadoCanchaTf.getText());
+        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Dirección", "Nivel de seguridad",
+                    "Categoría", "Estado"
+                }
+        ));
+        DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
 
-    }//GEN-LAST:event_AgregarCanchaJdBtMouseClicked
+        for (int i = 0; i < Restaurantes.size(); i++) {
+            Object[] row = {
+                Restaurantes.get(i).getNombre(),
+                Restaurantes.get(i).getDireccion(),
+                Restaurantes.get(i).getNivelDeSeguridad(),
+                Restaurantes.get(i).getNivelDeSeguridad(),
+                Restaurantes.get(i).getNivelDeSeguridad(),};
+            modelo.addRow(row);
+        }
+        ListarTb.setModel(modelo);
+    }//GEN-LAST:event_ListarCanchasRbActionPerformed
 
-    private void AgregarCasaJdBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarCasaJdBtMouseClicked
+    private void ListarRestaurantesRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarRestaurantesRbActionPerformed
         // TODO add your handling code here:
-        Casas.add(new Casa());
-        int pos = Casas.size() - 1;
-        Casas.get(pos).setNombre(NombreCasaTf.getText());
-        Casas.get(pos).setDireccion(DireccionTf.getText());
-        Casas.get(pos).setNivelDeSeguridad(Integer.parseInt(NivelDeSeguridadCasaTf.getText()));
-    }//GEN-LAST:event_AgregarCasaJdBtMouseClicked
+        ListarTb.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Dirección", "Nivel de seguridad",
+                    "Categoría", "Calificación"
+                }
+        ));
+        DefaultTableModel modelo = (DefaultTableModel) ListarTb.getModel();
 
-    private void AgregarRestauranteJdBt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarRestauranteJdBt1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarRestauranteJdBt1MouseClicked
+        for (int i = 0; i < Restaurantes.size(); i++) {
+            Object[] row = {
+                Restaurantes.get(i).getNombre(),
+                Restaurantes.get(i).getDireccion(),
+                Restaurantes.get(i).getNivelDeSeguridad(),
+                Restaurantes.get(i).getCategoria(),
+                Restaurantes.get(i).getCalificacion()
+            };
+            modelo.addRow(row);
+        }
+        ListarTb.setModel(modelo);
+    }//GEN-LAST:event_ListarRestaurantesRbActionPerformed
 
-    private void AgregarRestauranteBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRestauranteBtActionPerformed
+    private void ListarTbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListarTbMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarRestauranteBtActionPerformed
+        if (evt.isMetaDown()) {
+            MenuClickDerecho.show(ListarTb, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_ListarTbMouseClicked
 
     private void AgregarCarreteraBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCarreteraBtActionPerformed
         // TODO add your handling code here:
         AgregarCarreteraJd.setVisible(true);
         AgregarCarreteraJd.pack();
+        
     }//GEN-LAST:event_AgregarCarreteraBtActionPerformed
+
+    private void AgregarCasaBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCasaBtActionPerformed
+        // TODO add your handling code here:
+        AgregarCasaJd.setVisible(true);
+        AgregarCasaJd.pack();
+    }//GEN-LAST:event_AgregarCasaBtActionPerformed
+
+    private void AgregarCanchaBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCanchaBtActionPerformed
+        // TODO add your handling code here:
+        AgregarCanchaJd.setVisible(true);
+        AgregarCanchaJd.pack();
+    }//GEN-LAST:event_AgregarCanchaBtActionPerformed
+
+    private void AgregarRestauranteBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRestauranteBtActionPerformed
+        // TODO add your handling code here:
+        AgregarRestauranteJd.setVisible(true);
+        AgregarRestauranteJd.pack();
+    }//GEN-LAST:event_AgregarRestauranteBtActionPerformed
+
+    private void AgregarRestauranteBtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarRestauranteBtMouseClicked
+        // TODO add your handling code here:
+        AgregarRestauranteJd.setVisible(true);
+        AgregarRestauranteJd.pack();
+    }//GEN-LAST:event_AgregarRestauranteBtMouseClicked
+
+    private void ListarRestaurantesCategoriaRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarRestaurantesCategoriaRbActionPerformed
+        // TODO add your handling code here:
+        DefaultMutableTreeNode Raiz = new DefaultMutableTreeNode("Categorías");
+        DefaultTreeModel ModeloArbol = new DefaultTreeModel(Raiz);
+        DefaultMutableTreeNode Chinos = new DefaultMutableTreeNode("Chino");
+        DefaultMutableTreeNode Mexicanos = new DefaultMutableTreeNode("Mexicano");
+        DefaultMutableTreeNode Italianos = new DefaultMutableTreeNode("Italiano");
+        DefaultMutableTreeNode ComidasRapidas = new DefaultMutableTreeNode("Comida rápida");
+        for (int i = 0; i < Restaurantes.size(); i++) {
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Chino")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                Chinos.add(restaurante);
+            }
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Mexicano")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                Mexicanos.add(restaurante);
+            }
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Italiano")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                Italianos.add(restaurante);
+            }
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Comida rápida")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                ComidasRapidas.add(restaurante);
+            }
+        }
+        Raiz.add(Chinos);
+        Raiz.add(Italianos);
+        Raiz.add(Mexicanos);
+        Raiz.add(ComidasRapidas);
+        ListarCategoriasTr.setModel(ModeloArbol);
+    }//GEN-LAST:event_ListarRestaurantesCategoriaRbActionPerformed
+
+    private void ListarCanchasCategoriasRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCanchasCategoriasRbActionPerformed
+        // TODO add your handling code here:
+        DefaultMutableTreeNode Raiz = new DefaultMutableTreeNode("Categorías");
+        DefaultTreeModel ModeloArbol = new DefaultTreeModel(Raiz);
+        DefaultMutableTreeNode canchasFutbol = new DefaultMutableTreeNode("Fútbol");
+        DefaultMutableTreeNode canchasBasquet = new DefaultMutableTreeNode("Básquet");
+        DefaultMutableTreeNode canchasTenis = new DefaultMutableTreeNode("Tenis");
+        DefaultMutableTreeNode canchaseVolley = new DefaultMutableTreeNode("Volley");
+        for (int i = 0; i < Restaurantes.size(); i++) {
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Fútbol")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                canchasFutbol.add(restaurante);
+            }
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Básquet")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                canchasBasquet.add(restaurante);
+            }
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Tenis")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                canchasTenis.add(restaurante);
+            }
+            if (Restaurantes.get(i).getCategoria().equalsIgnoreCase("Volley")) {
+                DefaultMutableTreeNode restaurante
+                        = new DefaultMutableTreeNode(Restaurantes.get(i).getNombre());
+                canchaseVolley.add(restaurante);
+            }
+        }
+        Raiz.add(canchasFutbol);
+        Raiz.add(canchasBasquet);
+        Raiz.add(canchasTenis);
+        Raiz.add(canchaseVolley);
+        ListarCategoriasTr.setModel(ModeloArbol);
+    }//GEN-LAST:event_ListarCanchasCategoriasRbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1026,7 +1037,6 @@ public class Principal2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ActualizarListaAgregarEquipoBt;
     private javax.swing.JButton AgregarCanchaBt;
     private javax.swing.JDialog AgregarCanchaJd;
     private javax.swing.JButton AgregarCanchaJdBt;
@@ -1035,10 +1045,6 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JButton AgregarCasaBt;
     private javax.swing.JDialog AgregarCasaJd;
     private javax.swing.JButton AgregarCasaJdBt;
-    private javax.swing.JComboBox<String> AgregarJugadorCb;
-    private javax.swing.JList<String> AgregarJugadorLi;
-    private javax.swing.JTextField AgregarJugadorNombreLi;
-    private javax.swing.JPanel AgregarJugadoresAEquipoPa;
     private javax.swing.JButton AgregarRestauranteBt;
     private javax.swing.JDialog AgregarRestauranteJd;
     private javax.swing.JButton AgregarRestauranteJdBt;
@@ -1056,13 +1062,18 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Equipo2Cb;
     private javax.swing.JTextField EstadoCanchaTf;
     private javax.swing.JButton JugarPartidoBt;
+    private javax.swing.JRadioButton ListarCanchasCategoriasRb;
     private javax.swing.JRadioButton ListarCanchasRb;
     private javax.swing.JRadioButton ListarCarreterasRb;
+    private javax.swing.ButtonGroup ListarCategoriasBg;
+    private javax.swing.JTree ListarCategoriasTr;
+    private javax.swing.ButtonGroup ListarElementosBg;
     private javax.swing.JPanel ListarElementosPa;
+    private javax.swing.JRadioButton ListarRestaurantesCategoriaRb;
     private javax.swing.JRadioButton ListarRestaurantesRb;
     private javax.swing.JTable ListarTb;
+    private javax.swing.JComboBox<String> LugarInicio;
     private javax.swing.JPopupMenu MenuClickDerecho;
-    private javax.swing.JTree MostrarPlantillasArbol;
     private javax.swing.JPanel MostrarPlantillasPa;
     private javax.swing.JPanel MostrarRankingPa;
     private javax.swing.JTextField NivelDeSeguridadCanchaTf;
@@ -1075,9 +1086,9 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JPanel OrganizarPartidosPa;
     private javax.swing.JTabbedPane Principal;
     private javax.swing.JTable RankingTb;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1096,7 +1107,6 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
