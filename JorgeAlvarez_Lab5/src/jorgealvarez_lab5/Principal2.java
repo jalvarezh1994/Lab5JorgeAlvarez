@@ -799,7 +799,15 @@ public class Principal2 extends javax.swing.JFrame {
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
-        Equipos.remove(ListarTb.getSelectedRow());
+        if (ListarRestaurantesRb.isSelected()) {
+            Restaurantes.remove(ListarTb.getSelectedRow());
+        }
+        if (ListarCanchasRb.isSelected()) {
+            Canchas.remove(ListarTb.getSelectedRow());
+        }
+        if (ListarCarreterasRb.isSelected()) {
+            Carreteras.remove(ListarTb.getSelectedRow());
+        }
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void PrincipalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_PrincipalStateChanged
