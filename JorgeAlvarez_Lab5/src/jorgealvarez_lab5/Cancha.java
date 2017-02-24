@@ -29,7 +29,12 @@ public class Cancha extends Lugar {
     }
 
     public void setCategoria(String Categoria) {
-        this.Categoria = Categoria;
+        if (Categoria.equalsIgnoreCase("Fútbol")
+                || Categoria.equalsIgnoreCase("Básquet")
+                || Categoria.equalsIgnoreCase("Tenis")
+                || Categoria.equalsIgnoreCase("Volley")) {
+            this.Categoria = Categoria;
+        }
     }
 
     public String getEstado() {
